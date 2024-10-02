@@ -1,0 +1,68 @@
+<section class="ct_mobile_width h-100">
+        
+    <div class="ct_pt_46    ">
+        <div class="ct_head">
+            <a  class="ct_back_btn" routerLink="/"><i class="fa-solid fa-chevron-left"></i></a>
+            <h4 class="ct_fs_24 mb-0 mx-auto ct_fw_600">Search</h4>
+        </div> 
+
+        <div class="mt-3">
+            <div class="ct_search_bar">
+                <input type="text" placeholder="Enter shops name"  #searchInput (keyup)="searchItems($event)">
+                <i class="fa-solid fa-magnifying-glass"></i>
+             </div>
+             <ng-container *ngIf="itemsData.length > 0">
+                 <div class="ct_grid_3 mt-3">
+                    <div class="ct_search_item_grey" *ngFor="let items of itemsData">
+                        <p class="mb-0 ct_fs_14 ct_fw_600" (click)="itemsClick(items._id)">{{items.item_name}}</p>
+                    </div>
+                    <!-- <div class="ct_search_item_grey">
+                        <p class="mb-0 ct_fs_14 ct_fw_600">Shoes</p>
+                    </div>
+                    <div class="ct_search_item_grey">
+                        <p class="mb-0 ct_fs_14 ct_fw_600">Ready-to-wear</p>
+                    </div> -->
+                </div>
+
+             </ng-container>
+             <ng-container *ngIf="categoryData.length > 0">
+                 <div class="mt-3">
+                     <div class="ct_suggestion_box" *ngFor="let items of categoryData">
+                         <img src="assets/img/electric.png"  loading="lazy" alt="">
+                         <p class="mb-0 ct_fw_500 ct_fs_14">{{items.category_name}} </p>
+                     </div>
+                     <!-- <div class="ct_suggestion_box mt-2">
+                         <img src="assets/img/costmatic.png" alt="">
+                         <p class="mb-0 ct_fw_500 ct_fs_14">Cosmetics</p>
+                     </div> -->
+                 </div>
+
+             </ng-container>
+
+             <ng-container *ngIf="shopsData.length > 0">
+                <div class="mt-4">
+                    <h4 class="ct_fs_16 ct_fw_600 mb-0"> Searched shops</h4>
+                    <div class="ct_card_main mt-4" *ngFor="let items of shopsData">
+                        <div class="ct_card_left_cnt">
+                            <img src="assets/img/kirana1.png" alt="" class="ct_img_76_78">
+                            <div>
+                                <h6 class="ct_fw_600 ct_fs_16 mb-2 ct_overflow_text">{{items.shopName}}</h6>
+                                <p class="ct_fs_12 ct_fw_500 mb-0">{{items.address}} <br> {{items.area}} Indore, Madhya Pradesh <br> 452016</p>
+                            </div>
+                        </div>
+                        <div class="ct_card_right_cnt">
+                            <p class="mb-0 ct_purple_text ct_fw_500 ct_fs_12">{{items.distanceKm | number :'1.2-2'}} KM</p>
+                            <div class="ct_box_25 mt-3">
+                                <img src="assets/img/right_direction.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                   
+                 </div>
+             </ng-container>
+           
+        </div>
+      
+
+    </div>
+</section>

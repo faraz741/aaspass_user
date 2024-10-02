@@ -1,0 +1,166 @@
+<section class="ct_mobile_width h-100">
+        
+    <div class="ct_pt_46 pb-3">
+        <div class="ct_head">
+            <a  class="ct_back_btn" routerLink="/"><i class="fa-solid fa-chevron-left"></i></a>
+            <h4 class="ct_fs_24 mb-0 mx-auto ct_fw_600">Details</h4>
+            <div class="ct_like_icon ct_back_btn" >
+                <i class="fa-solid fa-heart"></i>
+            </div>
+        </div> 
+        <div class="mt-3">
+            <div class="ct_grid_2" *ngIf="shopData?.shopImages && shopData.shopImages.length">
+                <!-- Check if the first image exists -->
+                <div class="ct_big_img" *ngIf="shopData.shopImages[0]">
+                  <img [src]="shopData.shopImages[0]?.downloadUrl" alt="Big Image">
+                </div>
+                <div class="ct_grid_2">
+                  <!-- Display remaining images -->
+                  <div class="ct_small_img" *ngFor="let item of (shopImages | slice:1)">
+                    <img [src]="item.downloadUrl" alt="Small Image">
+                  </div>
+                </div>
+              </div>
+
+            <div class="d-flex align-items-center gap-2 mt-3">
+                <p class="ct_badge">Service</p>
+                <p class="ct_badge">Retail</p>
+                <p class="ct_badge">Bulk</p>
+            </div>
+
+            <div class="mt-2">
+                <h3 class="ct_dark_purple_text ct_fw_700 ct_fs_20">{{shopData.shopName}}</h3>
+                <p class="mb-0 ct_fs_14 ct_fw_500">{{shopData.address}}</p>
+            </div>
+            <div class="mt-3">
+                <span class="ct_badge" style="padding-block: 6px;">{{shopData.area}}</span>
+            </div>
+
+            <div class="ct_light_grey_bg mt-3">
+               <div>
+                <h5 class="ct_fs_16 ct_fw_500">Click for Direction on map</h5>
+                <p class="mb-0 ct_fw_500 ct_fs_14"><span class="ct_purple_text ct_fw_500">{{shopData.distanceKm | number:'1.2-2'}} KM</span> from your location</p>
+               </div>
+                <div class="ct_box_25 mt-3">
+                    <img src="assets/img/right_direction.svg" alt="">
+                </div>
+            </div>
+            <div class=" mt-3">
+                <div class="ct_search_bar">
+                    <input type="text" placeholder="Search for items">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                 </div>
+                 <h5 class="mt-3 ct_fs_16 ct_fw_700">All items/services of Pakiza Retail Pvt Ltd.</h5>
+                 <div class="ct_grid_3 mt-3">
+                    <div class="ct_search_item_grey">
+                        <p class="mb-0 ct_fs_14 ct_fw_600">Shoes</p>
+                    </div>
+                    <div class="ct_search_item_grey">
+                        <p class="mb-0 ct_fs_14 ct_fw_600">Travel bags</p>
+                    </div>
+                    <div class="ct_search_item_grey">
+                        <p class="mb-0 ct_fs_14 ct_fw_600">Handbags</p>
+                    </div>
+                    <div class="ct_search_item_grey">
+                        <p class="mb-0 ct_fs_14 ct_fw_600">Ready-to-wear</p>
+                    </div>
+
+                    <div class="ct_search_item_grey">
+                        <p class="mb-0 ct_fs_14 ct_fw_600">Jewelry</p>
+                    </div>
+                    <div class="ct_search_item_grey">
+                        <p class="mb-0 ct_fs_14 ct_fw_600">Fragrances</p>
+                    </div>
+                    <div class="ct_search_item_grey">
+                        <p class="mb-0 ct_fs_14 ct_fw_600">Shoes</p>
+                    </div>
+                    <div class="ct_search_item_grey">
+                        <p class="mb-0 ct_fs_14 ct_fw_600">Travel bags</p>
+                    </div>
+                    <div class="ct_search_item_grey">
+                        <p class="mb-0 ct_fs_14 ct_fw_600">Handbags</p>
+                    </div>
+                    <div class="ct_search_item_grey">
+                        <p class="mb-0 ct_fs_14 ct_fw_600">Ready-to-wear</p>
+                    </div>
+
+                    <div class="ct_search_item_grey">
+                        <p class="mb-0 ct_fs_14 ct_fw_600">Jewelry</p>
+                    </div>
+                    <div class="ct_search_item_grey">
+                        <p class="mb-0 ct_fs_14 ct_fw_600">Fragrances</p>
+                    </div>
+                    <div class="ct_search_item_grey">
+                        <p class="mb-0 ct_fs_14 ct_fw_600">Shoes</p>
+                    </div>
+                    <div class="ct_search_item_grey">
+                        <p class="mb-0 ct_fs_14 ct_fw_600">Travel bags</p>
+                    </div>
+                    <div class="ct_search_item_grey">
+                        <p class="mb-0 ct_fs_14 ct_fw_600">Handbags</p>
+                    </div>
+                    <div class="ct_search_item_grey">
+                        <p class="mb-0 ct_fs_14 ct_fw_600">Ready-to-wear</p>
+                    </div>
+
+                    <div class="ct_search_item_grey">
+                        <p class="mb-0 ct_fs_14 ct_fw_600">Jewelry</p>
+                    </div>
+                    <div class="ct_search_item_grey">
+                        <p class="mb-0 ct_fs_14 ct_fw_600">Fragrances</p>
+                    </div>
+                 </div>
+                 <div class="mt-4">
+                    <h4 class="ct_fs_16 ct_fw_600 mb-0">Related Shop near by</h4>
+                    <div class="ct_card_main mt-4">
+                        <div class="ct_card_left_cnt">
+                            <img src="assets/img/kirana1.png" alt="" class="ct_img_76_78">
+                            <div>
+                                <h6 class="ct_fw_600 ct_fs_16 mb-2 ct_overflow_text">Muskan Kirana Store</h6>
+                                <p class="ct_fs_12 ct_fw_500 mb-0">26, Anar Bagh Colony, Shahjahan <br> Colony, Indore, Madhya Pradesh <br> 452016</p>
+                            </div>
+                        </div>
+                        <div class="ct_card_right_cnt">
+                            <p class="mb-0 ct_purple_text ct_fw_500 ct_fs_12">1.7 KM</p>
+                            <div class="ct_box_25 mt-3">
+                                <img src="assets/img/right_direction.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ct_card_main mt-4">
+                        <div class="ct_card_left_cnt">
+                            <img src="assets/img/kirana2.png" alt="" class="ct_img_76_78">
+                            <div>
+                                <h6 class="ct_fw_600 ct_fs_16 mb-2 ct_overflow_text">Hotel Zakir-Vijay Nagar</h6>
+                                <p class="ct_fs_12 ct_fw_500 mb-0">EB- 220, Ring Rd, Scheme No:94, <br> Mansarovar Nagar, Indore, Madhya <br> Pradesh 452010</p>
+                            </div>
+                        </div>
+                        <div class="ct_card_right_cnt">
+                            <p class="mb-0 ct_purple_text ct_fw_500 ct_fs_12">1.7 KM</p>
+                            <div class="ct_box_25 mt-3">
+                                <img src="assets/img/right_direction.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ct_card_main mt-4">
+                        <div class="ct_card_left_cnt">
+                            <img src="assets/img/kirana3.png" alt="" class="ct_img_76_78">
+                            <div>
+                                <h6 class="ct_fw_600 ct_fs_16 mb-2 ct_overflow_text">Capital O 77828 Hotel Twinkle Regency</h6>
+                                <p class="ct_fs_12 ct_fw_500 mb-0">EB - 173, Sch no - 94, opposite <br> Bombay Hospital, Indore, Madhya <br> Pradesh 452001</p>
+                            </div>
+                        </div>
+                        <div class="ct_card_right_cnt">
+                            <p class="mb-0 ct_purple_text ct_fw_500 ct_fs_12">1.7 KM</p>
+                            <div class="ct_box_25 mt-3">
+                                <img src="assets/img/right_direction.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+            
+        </div>
+
+    </div>
+</section>

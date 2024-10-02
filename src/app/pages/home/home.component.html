@@ -1,0 +1,230 @@
+<section class="ct_mobile_width h-100">
+
+
+    <div class="ct_pt_46">
+        <div class="ct_head justify-content-between">
+            <div class="ct_logo_page">
+                <img src="assets/img/AasPas.svg" alt="">
+            </div>
+            <div class="d-flex align-items-center gap-2">
+                <div class="d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#ct_location">
+                    <img src="assets/img/location_red_icon.svg" alt="">
+                    <p class="mb-0 ct_fw_600">Khajrana, Indore</p>
+                </div>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#ct_setting">
+                    <img src="assets/img/setting.svg" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="mt-2">
+            <div class="ct_banner_img">
+                <img src="assets/img/shoes.jpg" alt="">
+            </div>
+            <div class="ct_search_bar mt-3" routerLink="/search">
+                <input type="text" placeholder="Search for Mobile shop, burger, bag etc">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+
+            <div class="ct_grid_4 mt-3" *ngIf="categories$ | async as categories">
+                <a class="ct_category_box text-dark" data-bs-toggle="modal" data-bs-target="#ct_all_categories">
+                    <h4 class="mb-0 ct_fs_14 text-center ct_fw_500">All Categories </h4>
+                </a>
+                <a href="search-items-type-wise.html" class="ct_category_box_img text-dark"
+                    *ngFor="let items of categories.searchCategory | slice:0:3">
+                    <img src="assets/img/fortune.png" alt="">
+                    <h5 class="mb-0 ct_fs_14 ct_fw_500 text-center mt-2">{{items.category_name}}</h5>
+                </a>
+
+            </div>
+
+            <div class="mt-4">
+                <h4 class="ct_fs_16 ct_fw_600 mb-0">Near by Shops</h4>
+                <a  class="ct_card_main mt-4 text-dark" *ngFor="let items of data">
+                    <div class="ct_card_left_cnt" (click)="shopClick(items)">
+                        <img src="assets/img/kirana1.png" alt="" class="ct_img_76_78">
+                        <div>
+                            <h6 class="ct_fw_600 ct_fs_16 mb-2 ct_overflow_text">{{items.shopName}}</h6>
+                            <p class="ct_fs_12 ct_fw_500 mb-0">
+                                {{items.address}} <br> {{items.area}} <br> 452016
+                            </p>
+                        </div>
+                    </div>
+                    <div class="ct_card_right_cnt">
+                        <p class="mb-0 ct_purple_text ct_fw_500 ct_fs_12">{{items.distanceKm | number:'1.2-2'}} KM</p>
+                        <div class="ct_box_25 mt-3">
+                            <img src="assets/img/right_direction.svg" alt="" (click)="redirectToMap(items.location.coordinates)">
+                        </div>
+                    </div>
+                </a>
+              
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+</section>
+
+
+<!-- setting modal s -->
+<!-- Modal -->
+<div class="modal fade ct_modal_bottom" id="ct_setting" tabindex="-1" aria-labelledby="ct_settingLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <a href="favorites_shop.html" class="d-flex align-items-center gap-3 mb-4 text-dark">
+                    <img src="assets/assets/img/fav.svg" alt="">
+                    <p class="mb-0 ct_fs_16 ct_fw_500">Favorites Shops</p>
+                </a>
+                <a href="profile.html" class="d-flex align-items-center gap-3 mb-4 text-dark">
+                    <img src="assets/assets/img/user.svg" alt="">
+                    <p class="mb-0 ct_fs_16 ct_fw_500">My Profile</p>
+                </a>
+                <div class="d-flex align-items-center gap-3 mb-4" data-bs-toggle="modal" data-bs-target="#ct_language">
+                    <img src="assets/assets/img/lang.svg" alt="">
+                    <p class="mb-0 ct_fs_16 ct_fw_500">Language</p>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <img src="assets/assets/img/logout.svg" alt="">
+                    <p class="mb-0 ct_fs_16 ct_fw_500">Logout</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Language section S -->
+<div class="modal fade ct_modal_bottom" id="ct_language" tabindex="-1" aria-labelledby="ct_languageLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    <label class="form-check-label  ct_fs_16 ct_fw_500" for="flexRadioDefault2">
+                        English
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    <label class="form-check-label ct_fs_16 ct_fw_500" for="flexRadioDefault2">
+                        Hindi
+                    </label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- location section S -->
+<div class="modal fade ct_modal_bottom" id="ct_location" tabindex="-1" aria-labelledby="ct_locationLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content pt-2">
+
+            <div class="modal-body">
+                <div class="ct_search_bar">
+                    <input type="text" class="ct_light_grey_search"
+                        placeholder="Search for Mobile shop, burger, bag etc" value="Ram">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+
+                <div class="ct_search_list_main">
+                    <ul class="ps-2 mb-0">
+                        <li class="mt-4">
+                            <div class="ct_location_icon">
+                                <img src="assets/assets/img/Location.svg" alt="">
+                            </div>
+                            <div>
+                                <h5 class="ct_fs_14 ct_fw_600 mb-1">Ranipura</h5>
+                                <p class="mb-0 ct_fs_12">Indore</p>
+                            </div>
+                        </li>
+                        <li class="mt-4">
+                            <div class="ct_location_icon">
+                                <img src="assets/assets/img/Location.svg" alt="">
+                            </div>
+                            <div>
+                                <h5 class="ct_fs_14 ct_fw_600 mb-1">Rani Nagar</h5>
+                                <p class="mb-0 ct_fs_12">Indore</p>
+                            </div>
+                        </li>
+                        <li class="mt-4">
+                            <div class="ct_location_icon">
+                                <img src="assets/assets/img/Location.svg" alt="">
+                            </div>
+                            <div>
+                                <h5 class="ct_fs_14 ct_fw_600 mb-1">Rani Nagar</h5>
+                                <p class="mb-0 ct_fs_12">Indore</p>
+                            </div>
+                        </li>
+                        <li class="mt-4">
+                            <div class="ct_location_icon">
+                                <img src="assets/assets/img/Location.svg" alt="">
+                            </div>
+                            <div>
+                                <h5 class="ct_fs_14 ct_fw_600 mb-1">Rani Nagar</h5>
+                                <p class="mb-0 ct_fs_12">Indore</p>
+                            </div>
+                        </li>
+                        <li class="mt-4">
+                            <div class="ct_location_icon">
+                                <img src="assets/assets/img/Location.svg" alt="">
+                            </div>
+                            <div>
+                                <h5 class="ct_fs_14 ct_fw_600 mb-1">Rani Nagar</h5>
+                                <p class="mb-0 ct_fs_12">Indore</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- All Categories section S -->
+<div class="modal fade ct_modal_bottom" id="ct_all_categories" tabindex="-1" aria-labelledby="ct_all_categoriesLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content pt-0">
+
+            <div class="modal-body">
+                <div class="ct_search_bar mt-3">
+                    <input type="text" placeholder="Search Category" [(ngModel)]="searchText">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+
+                <div class="ct_grid_4 mt-3" *ngIf="categories$ | async as categories">
+                    <label class="ct_category_box_img"
+                        *ngFor="let items of categories.searchCategory | filterCategoriesPipe:searchText">
+                        <div class="position-relative" id="ct_select_1">
+                            <img src="assets/img/mobile.png" alt="">
+
+                        </div>
+                        <h5 class="mb-0 ct_fs_14 ct_fw_500 text-center mt-2">{{items.category_name}}</h5>
+                    </label>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
